@@ -4,12 +4,12 @@ from tensorflow.keras.layers import Conv2D, MaxPooling2D, Dense, Flatten, Dropou
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 import matplotlib.pyplot as plt
 
-# Define paths
+
 with_mask = "facemask-dataset/dataset/with_mask"
 without_mask = "facemask-dataset/dataset/without_mask"
 
 
-# Image parameters
+
 IMG_HEIGHT = 150
 IMG_WIDTH = 150
 BATCH_SIZE = 32
@@ -95,7 +95,7 @@ history = model.fit(
 
 
 print("Evaluation:", model.evaluate(val_generator))
-# Plot training history
+
 plt.figure(figsize=(12, 4))
 
 plt.subplot(1, 2, 1)
