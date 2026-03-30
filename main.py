@@ -93,10 +93,17 @@ history = model.fit(
     validation_data=val_generator
 )
 
+print("Evaluation (Standard):", model.evaluate(val_generator))
+print("Evaluation (Stress):", model.evaluate(val_stress_generator))
 
-print("Evaluation:", model.evaluate(val_generator))
+# Logging performance
+import logging
+logging.basicConfig(filename='performance.log', level=logging.INFO)
+logging.info(f"Standard Validation Loss: {model.evaluate(val_generator)}")
+logging.info(f"Stress Validation Loss: {model.evaluate(val_stress_generator)}")
 
 plt.figure(figsize=(12, 4))
+
 
 plt.subplot(1, 2, 1)
 plt.plot(history.history['accuracy'], label='Train Accuracy')
